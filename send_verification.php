@@ -10,23 +10,23 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
 function sendVerificationEmail($email, $name, $token) {
-    $verifyLink = 'https://marketsa13.infinityfreeapp.com/verify_email.php?token=' . $token;
+    $verifyLink = 'http://localhost/MarketSA/verify_email.php?token=' . $token;
 
     $mail = new PHPMailer(true);
     
 
     try {
       
-         $mail->isSMTP();
-$mail->Host       = 'smtp-relay.brevo.com';
+        $mail->isSMTP();
+$mail->Host       = '';
 $mail->SMTPAuth   = true;
-$mail->Username   = 'af6ec1001@smtp-brevo.com';
-$mail->Password   = 'xsmtpsib-01ce5bc4314da77ba847950c0a978d5edd9a9c0957ed31eb0aab8e3d1a6f7ddc-kThprexhdJy29S9r';
+$mail->Username   = '';
+$mail->Password   = '';
 $mail->SMTPSecure = 'tls';
-$mail->Port       = 587;
+$mail->Port       = ;
 
 
-        $mail->setFrom('serokaphalane@gmail.com', 'MarketSA');
+        $mail->setFrom('no-reply@marketsa.co.za', 'MarketSA');
         $mail->addAddress($email, $name);
         $mail->isHTML(true);
         $mail->Subject = 'Verify your MarketSA account';
